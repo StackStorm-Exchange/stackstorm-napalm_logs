@@ -20,8 +20,8 @@ class NapalmLogsSensor(Sensor):
 
         # Using zmq
         context = zmq.Context()
-        socket = context.socket(zmq.SUB)
-        socket.connect('tcp://{address}:{port}'.format(address=self._server_address,
+        self.socket = context.socket(zmq.SUB)
+        self.socket.connect('tcp://{address}:{port}'.format(address=self._server_address,
                                                        port=self._server_port))
         self.socket.setsockopt(zmq.SUBSCRIBE, b'')
 
