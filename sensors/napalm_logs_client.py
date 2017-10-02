@@ -22,7 +22,7 @@ class NapalmLogsSensor(Sensor):
         context = zmq.Context()
         self.socket = context.socket(zmq.SUB)
         self.socket.connect('tcp://{address}:{port}'.format(address=self._server_address,
-                                                       port=self._server_port))
+                                                            port=self._server_port))
         self.socket.setsockopt(zmq.SUBSCRIBE, b'')
 
         self.auth = napalm_logs.utils.ClientAuth(self._certificate,
