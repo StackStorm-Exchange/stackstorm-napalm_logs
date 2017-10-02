@@ -18,4 +18,4 @@ auth_port:
 certificate_file:
   description: "Full file path to the certificate used on the napalm-logs server."
   type: string
-  default: /opt/stackstorm/packs/napalm_logs/napalm-logs.crt
+  default: /opt/stackstorm/configs/napalm-logs.crt

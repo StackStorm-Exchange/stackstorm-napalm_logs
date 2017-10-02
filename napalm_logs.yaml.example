@@ -3,4 +3,4 @@ server_address: 1.1.1.1
 server_port: 49017
 auth_address: 1.1.1.1
 auth_port: 49018
-certificate_file: /opt/stackstorm/packs/napalm_logs/napalm-logs.crt
+certificate_file: /opt/stackstorm/configs/napalm-logs.crt
