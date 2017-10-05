@@ -22,6 +22,15 @@ class NapalmLogsSensor(Sensor):
         context = zmq.Context()
         # pylint: disable=no-member
         self.socket = context.socket(zmq.SUB)
+
+        # override OS tcp keepalive settings to keep socket open
+        # pylint: disable=no-member
+        self.socket.setsockopt(zmq.TCP_KEEPALIVE, 1)
+        # pylint: disable=no-member
+        self.socket.setsockopt(zmq.TCP_KEEPALIVE_IDLE, 300)
+        # pylint: disable=no-member
+        self.socket.setsockopt(zmq.TCP_KEEPALIVE_INTVL, 300)
+
         self.socket.connect('tcp://{address}:{port}'.format(address=self._server_address,
                                                             port=self._server_port))
         # pylint: disable=no-member
